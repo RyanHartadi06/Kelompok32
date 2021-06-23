@@ -45,7 +45,6 @@
                       <th>Berat</th>
                       <th>Panjang</th>
                       <th>Diameter</th>
-                      <th>Hasil Klasifikasi</th>
                       <th style="width: 100px">Aksi</th>
                     </tr>
                   </thead>
@@ -60,7 +59,6 @@
                         <td><?= $row['berat'] ?></td>
                         <td><?= $row['panjang'] ?></td>
                         <td><?= $row['diameter'] ?></td>
-                        <td><?= $row['hasil_klasifikasi'] ?></td>
                         <td>
                           <a href="<?php echo base_url("List_Siswa/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
                             <i class="fas fa-plus"></i></a>
