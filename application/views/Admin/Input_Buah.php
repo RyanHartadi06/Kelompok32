@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-  <h1 class="h3 mb-2 text-gray-800">Daftar Calon Penerima Beasiswa</h1>
+  <h1 class="h3 mb-2 text-gray-800">Input Data Buah Naga</h1>
   <form action="" method="post" enctype="multipart/form-data">
 
     <div class="card shadow mb-4">
@@ -8,111 +8,36 @@
         <?= $this->session->flashdata('pesan') ?>
         <div class="row">
           <div class="col">
-            <p>Nama Siswa</p>
+            <p>Nama Buah</p>
             <div class="input-group">
-              <input type="text" id="nama_siswa" name="nama_siswa" class="form-control border-dark small mb-3" placeholder="Masukkan Nama Siswa" value="<?php echo set_value('nama_siswa') ?>" aria-describedby="basic-addon2">
+              <input type="text" id="nama_buah" name="nama_buah" class="form-control border-dark small mb-3" placeholder="Masukkan Nama Buah" value="<?php echo set_value('nama_buah') ?>" aria-describedby="basic-addon2">
             </div>
-            <?= form_error('nama_siswa', '<small class="text-danger">', '</small>') ?>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col mb-3">
-            <p>Jenis Kelamin</p>
-            <div class="input-group">
-              <select class="form-control" name="jk" id="jk" required>
-                <option value="">No Selected</option>
-                <option value="1"> L </option>
-                <option value="2"> P </option>
-              </select>
-            </div>
-            <?= form_error('jk', '<small class="text-danger">', '</small>') ?>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <p>Tahun Masuk</p>
-            <div class="input-group">
-              <input type="text" id="tahun_masuk" name="tahun_masuk" class="form-control border-dark small mb-3" placeholder="Masukkan Tahun Masuk" value="<?php echo set_value('tahun_masuk') ?>" aria-describedby="basic-addon2">
-            </div>
-            <?= form_error('tahun_masuk', '<small class="text-danger">', '</small>') ?>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <p>Kelas</p>
-            <div class="input-group mb-3">
-              <!-- <input type="text" id="kelas" name="kelas" class="form-control border-dark small mb-3" placeholder="Masukkan Kelas" value="<?php echo set_value('kelas') ?>" aria-describedby="basic-addon2"> -->
-              <select class="form-control" name="kelas" id="kelas" required>
-                <?php foreach ($kelas as $k) { ?>
-                  <option value="<?= $k['id'] ?>"><?= $k['kelas'] ?></option>
-                <?php } ?>
-              </select>
-            </div>
-            <?= form_error('kelas', '<small class="text-danger">', '</small>') ?>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <p>Tanggal Lahir</p>
-            <div class="input-group">
-              <input class="form-control border-dark small mb-3" type="date" id="singleDatePicker" placeholder="Masukkan Tanggal Lahir" name="singleDatePicker">
-            </div>
-            <?= form_error('singleDatePicker', '<small class="text-danger">', '</small>') ?>
-
+            <?= form_error('nama_buah', '<small class="text-danger">', '</small>') ?>
           </div>
         </div>
         <div class="row">
-          <div class="col mb-3">
-            <p>Kehadiran Siswa</p>
+          <div class="col-lg-4 col-md-4 col-4">
+            <p>Berat</p>
             <div class="input-group">
-              <select class="form-control" name="kehadiran" id="kehadiran" required>
-                <option value="">No Selected</option>
-                <option value="4"> > 80%</option>
-                <option value="3"> > 70% - 80%</option>
-                <option value="2"> > 60% - 70%</option>
-                <option value="1">
-                  < 50 %</option>
-              </select>
+              <input type="number" id="berat" name="berat" class="form-control border-dark small mb-3" placeholder="Masukkan Berat Buah" aria-describedby="basic-addon2">
             </div>
+            <?= form_error('berat', '<small class="text-danger">', '</small>') ?>
+          </div>
+          <div class="col-lg-4 col-md-4 col-4">
+            <p>Panjang</p>
+            <div class="input-group">
+              <input type="number" id="panjang" name="panjang" class="form-control border-dark small mb-3" placeholder="Masukkan Panjang Buah" aria-describedby="basic-addon2">
+            </div>
+            <?= form_error('panjang', '<small class="text-danger">', '</small>') ?>
+          </div>
+          <div class="col-lg-4 col-md-4 col-4">
+            <p>Diameter</p>
+            <div class="input-group">
+              <input type="number" id="diameter" name="diameter" class="form-control border-dark small mb-3" placeholder="Masukkan Diameeter Buah" aria-describedby="basic-addon2">
+            </div>
+            <?= form_error('diameter', '<small class="text-danger">', '</small>') ?>
           </div>
         </div>
-        <div class="row">
-          <div class="col mb-3">
-            <p>Jarak Tempuh Rumah</p>
-            <div class="input-group">
-              <select class="form-control" name="jarak_tempuh" id="jarak_tempuh" required>
-                <option value="">No Selected</option>
-                <option value="1">
-                  <= 5 Km</option>
-                <option value="2"> 5 Km - 10 Km</option>
-                <option value="3"> 10 Km - 15 Km</option>
-                <option value="4"> > 15 Km</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col mb-3">
-            <p>Penghasilan Orang Tua</p>
-            <div class="input-group">
-              <select class="form-control" name="penghasilan" id="penghasilan" required>
-                <option value="">No Selected</option>
-                <option value="4">
-                  <= 500.000</option>
-                <option value="3"> 500.000 - 1.000.000</option>
-                <option value="2"> 1.000.000 - 2.000.000</option>
-                <option value="1"> > 2.000.000</option>
-              </select>
-            </div>
-            <?= form_error('penghasilan', '<small class="text-danger">', '</small>') ?>
-          </div>
-        </div>
-
         <button type="submit" class="btn btn-info btn-icon-split">
           <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
@@ -127,7 +52,8 @@
         </a>
       </div>
     </div>
-    <!-- /.card -->
+</div>
+<!-- /.card -->
 
 </div>
 

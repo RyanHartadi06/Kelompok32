@@ -1,6 +1,6 @@
 <?php
 
-class List_Siswa extends CI_Controller
+class Buah extends CI_Controller
 {
     public function __construct()
     {
@@ -11,20 +11,19 @@ class List_Siswa extends CI_Controller
     public function index()
     {
         $data['title'] = "List Calon Beasiswa";
-        $data['admin'] = $this->db->get_where('admin', ['email' =>
+        $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['siswa'] = $this->db->query("SELECT * FROM siswa , kelas WHERE kelas.id = siswa.kelas")->result_array();
+        $data['buah'] = $this->db->query("SELECT * FROM buah_naga GROUP BY id_buah desc")->result_array();
         $this->load->view("template/sidebar");
         $this->load->view("template/header", $data);
-        $this->load->view('Admin/List_Siswa', $data);
+        $this->load->view('Admin/Buah', $data);
         $this->load->view("template/footer");
     }
     public function detail($id)
     {
         $data['title'] = "List Calon Beasiswa";
-        $data['admin'] = $this->db->get_where('admin', ['email' =>
+        $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['detail'] = $this->db->query("SELECT * FROM siswa , kelas WHERE kelas.id = siswa.kelas AND siswa.id_siswa = '$id'")->result_array();
         $this->load->view("template/sidebar");
         $this->load->view("template/header", $data);
         $this->load->view('Admin/Detail_Siswa');
@@ -33,7 +32,7 @@ class List_Siswa extends CI_Controller
     public function edit($id)
     {
         $data['title'] = "List Calon Beasiswa";
-        $data['admin'] = $this->db->get_where('admin', ['email' =>
+        $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['detail'] = $this->db->query("SELECT * FROM siswa , kelas WHERE kelas.id = siswa.kelas AND siswa.id_siswa = '$id'")->row();
         $data['kelas'] = $this->db->query("SELECT * FROM kelas")->result_array();

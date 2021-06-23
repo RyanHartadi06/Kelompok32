@@ -26,7 +26,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Data Siswa</h1>
+          <h1 class="h3 mb-2 text-gray-800">Buah Naga</h1>
 
           <!-- Sub Topbar -->
           <div class="card shadow mb-4">
@@ -41,32 +41,32 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama</th>
-                      <th>Jenis Kelamin</th>
-                      <th>Kelas</th>
+                      <th>Nama Buah</th>
+                      <th>Berat</th>
+                      <th>Panjang</th>
+                      <th>Diameter</th>
+                      <th>Hasil Klasifikasi</th>
                       <th style="width: 100px">Aksi</th>
                     </tr>
                   </thead>
                   <tbody id="target">
                     <?php
                     $no = 1;
-                    foreach ($siswa as $row) {
+                    foreach ($buah as $row) {
                       ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $row['nama_siswa'] ?></td>
-                        <td><?php if ($row['jenis_kelamin'] == 1) {
-                                echo 'Laki Laki';
-                              } else {
-                                echo 'Perempuan';
-                              } ?></td>
-                        <td><?= $row['kelas'] ?></td>
+                        <td><?= $row['nama_buah'] ?></td>
+                        <td><?= $row['berat'] ?></td>
+                        <td><?= $row['panjang'] ?></td>
+                        <td><?= $row['diameter'] ?></td>
+                        <td><?= $row['hasil_klasifikasi'] ?></td>
                         <td>
-                          <a href="<?php echo base_url("List_Siswa/detail/" . $row['id_siswa']); ?>" class="btn btn-sm btn-success btn-circle">
+                          <a href="<?php echo base_url("List_Siswa/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
                             <i class="fas fa-plus"></i></a>
-                          <a href="<?php echo base_url("List_Siswa/edit/" . $row['id_siswa']); ?>" class="btn btn-sm btn-primary btn-circle">
+                          <a href="<?php echo base_url("List_Siswa/edit/" . $row['id_buah']); ?>" class="btn btn-sm btn-primary btn-circle">
                             <i class="fas fa-pen"></i></a>
-                          <a href="#" onclick="confirm_modal('<?= 'List_Siswa/hapus/' . $row['id_siswa'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
+                          <a href="#" onclick="confirm_modal('<?= 'List_Siswa/hapus/' . $row['id_buah'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
                             <i class="fa fa-trash"></i>
                           </a>
                         </td>

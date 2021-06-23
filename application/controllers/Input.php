@@ -24,12 +24,11 @@ class Input extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = "Input Beasiswa";
-            $data['admin'] = $this->db->get_where('admin', ['email' =>
+            $data['admin'] = $this->db->get_where('pengguna', ['email' =>
             $this->session->userdata('email')])->row_array();
-            $data['kelas'] = $this->db->query("SELECT * FROM kelas")->result_array();
             $this->load->view("template/sidebar");
             $this->load->view("template/header", $data);
-            $this->load->view('Admin/Input');
+            $this->load->view('Admin/Input_Buah');
             $this->load->view("template/footer");
         } else {
             $jarak = $this->input->post('jarak_tempuh');

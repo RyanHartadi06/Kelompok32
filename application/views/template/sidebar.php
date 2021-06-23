@@ -9,7 +9,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Admin</div>
+      <div class="sidebar-brand-text mx-3">Simple Additive Weighting</div>
     </a>
 
     <!-- Divider -->
@@ -37,7 +37,7 @@
       Data Buah Naga
     </div>
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url("List_Siswa") ?>">
+      <a class="nav-link" href="<?= base_url("Buah") ?>">
         <i class="fas fa-fw fa-user"></i>
         <span>Data Buah Naga</span></a>
     </li>
