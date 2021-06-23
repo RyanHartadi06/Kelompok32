@@ -22,22 +22,20 @@
       <div class="card mb-4">
         <div class="card-header border-bottom">
           <!-- Dashboard card navigation-->
-          <!-- <ul class="nav nav-tabs card-header-tabs" id="dashboardNav" role="tablist">
-            <li class="nav-item mr-1"><a class="nav-link active" id="kehadiran-pill" href="#kehadiran" data-toggle="tab" role="tab" aria-controls="kehadiran" aria-selected="true">Range Kehadiran (Benefit)</a></li>
-            <li class="nav-item"><a class="nav-link" id="jarak-pill" href="#jarak" data-toggle="tab" role="tab" aria-controls="jarak" aria-selected="false">Jarak Tempuh (Benefit)</a></li>
-            <li class="nav-item"><a class="nav-link" id="cost-pill" href="#cost" data-toggle="tab" role="tab" aria-controls="cost" aria-selected="false">Penghasilan (Cost)</a></li>
-          </ul> -->
+          <ul class="nav nav-tabs card-header-tabs" id="dashboardNav" role="tablist">
+            <li class="nav-item mr-1"><a class="nav-link active" id="bobot-pill" href="#bobot" data-toggle="tab" role="tab" aria-controls="bobot" aria-selected="true">Range bobot (Benefit)</a></li>
+          </ul>
         </div>
         <div class="card-body">
           <div class="tab-content" id="dashboardNavContent">
             <!-- Dashboard Tab Pane 1-->
-            <!-- <div class="tab-pane fade show active" id="kehadiran" role="tabpanel" aria-labelledby="kehadiran-pill">
+            <div class="tab-pane fade show active" id="kehadiran" role="tabpanel" aria-labelledby="kehadiran-pill">
               <div class="datatable table-responsive">
                 <table class="table table-bordered table-hover" id="dataTableActivity" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Nomor</th>
-                      <th>Kehadiran</th>
+                      <th>Bobot</th>
                       <th>Nilai</th>
                     </tr>
                   </thead>
@@ -45,122 +43,32 @@
                     <tr>
                       <td>1</td>
                       <td>
-                        Lebih dari 80%
+                        Berat
                       </td>
-                      <td>4</td>
+                      <td>
+                        <?= $bobot->berat ?></td>
                     </tr>
                     <tr>
                       <td>2</td>
                       <td>
-                        Antara 70% - 80%
+                        Panjang
                       </td>
-                      <td>3</td>
+                      <td>
+                        <?= $bobot->panjang ?></td>
                     </tr>
                     <tr>
-                      <td>3</td>
-                      <td>
-                        Antara 60% - 70%
-                      </td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>
-                        Kurang dari 60%
-                      </td>
                       <td>1</td>
+                      <td>
+                        Diameter
+                      </td>
+                      <td>
+                        <?= $bobot->diameter ?></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </div> -->
-            <!-- Dashboard Tab Pane 2-->
-            <!-- <div class="tab-pane fade" id="jarak" role="tabpanel" aria-labelledby="jarak-pill">
-              <div class="datatable table-responsive">
-                <table class="table table-bordered table-hover" id="dataTableActivity" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Nomor</th>
-                      <th>Jarak Tempuh</th>
-                      <th>Nilai</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        Lebih dari 15 Km
-                      </td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>
-                        Antara 10 Km - 15 Km
-                      </td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>
-                        Antara 5 Km - 10 Km
-                      </td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>
-                        Kurang 5 Km
-                      </td>
-                      <td>1</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div> -->
-            <!-- <div class="tab-pane fade" id="cost" role="tabpanel" aria-labelledby="cost-pill">
-              <div class="datatable table-responsive">
-                <table class="table table-bordered table-hover" id="dataTableActivity" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Nomor</th>
-                      <th>Penghasilan</th>
-                      <th>Nilai</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        Kurang dari Rp 500.000
-                      </td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>
-                        Antara Rp 500.000 - Rp 1.000.000
-                      </td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>
-                        Antara Rp 1.000.000 - Rp 2.000.000
-                      </td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>
-                        Lebih dari Rp 2.000.000
-                      </td>
-                      <td>1</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div> -->
+            </div>
+
           </div>
         </div>
       </div>
