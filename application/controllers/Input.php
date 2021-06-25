@@ -48,7 +48,7 @@ class Input extends CI_Controller
                 // 'c2' => '',
                 // 'c3' => '',
                 // 'nilai_akhir' => '',
-                // 'createdDate' => date('Y-m-d H:i:s'),
+                'createdDate' => date('Y-m-d H:i:s'),
 
             ));
             if ($tambah) {

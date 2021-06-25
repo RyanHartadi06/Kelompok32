@@ -57,7 +57,7 @@
                         <?= $bobot->panjang ?></td>
                     </tr>
                     <tr>
-                      <td>1</td>
+                      <td>3</td>
                       <td>
                         Diameter
                       </td>
