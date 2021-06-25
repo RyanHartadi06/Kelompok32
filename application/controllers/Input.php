@@ -53,7 +53,7 @@ class Input extends CI_Controller
             ));
             if ($tambah) {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-                        Berhasil Menambahkan data buahzz!
+                        Berhasil Menambahkan data buah!
                         </div>');
                 redirect('Input');
             } else {

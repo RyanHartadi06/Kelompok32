@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2021 at 05:01 AM
+-- Generation Time: Jun 25, 2021 at 01:59 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -56,9 +56,17 @@ CREATE TABLE `buah_naga` (
   `nilai_c1` int(11) NOT NULL,
   `nilai_c2` int(11) NOT NULL,
   `nilai_c3` int(11) NOT NULL,
+  `nilai_akhir` int(11) NOT NULL,
   `hasil_klasifikasi` int(1) NOT NULL COMMENT '1 = A, 2 = B, 3 = C',
   `createdDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `buah_naga`
+--
+
+INSERT INTO `buah_naga` (`id_buah`, `nama_buah`, `berat`, `panjang`, `diameter`, `nilai_c1`, `nilai_c2`, `nilai_c3`, `nilai_akhir`, `hasil_klasifikasi`, `createdDate`) VALUES
+(2, 'anggur', 100, 100, 300, 0, 0, 0, 0, 0, '2021-06-25 13:53:31');
 
 -- --------------------------------------------------------
 
@@ -118,7 +126,7 @@ ALTER TABLE `bobot`
 -- AUTO_INCREMENT for table `buah_naga`
 --
 ALTER TABLE `buah_naga`
-  MODIFY `id_buah` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_buah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
