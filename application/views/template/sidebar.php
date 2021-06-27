@@ -9,7 +9,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">Simple Additive Weighting</div>
+      <div class="sidebar-brand-text mx-3"> K-Means</div>
     </a>
 
     <!-- Divider -->
@@ -29,9 +29,9 @@
       Bobot
     </div>
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url("Bobot") ?>">
+      <a class="nav-link" href="<?= base_url("Centroid") ?>">
         <i class="fas fa-fw fa-table"></i>
-        <span>Input Bobot Sistem</span></a>
+        <span>Centroid Sistem</span></a>
     </li>
     <div class="sidebar-heading">
       Data Buah Naga

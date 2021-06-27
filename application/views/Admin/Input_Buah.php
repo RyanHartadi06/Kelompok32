@@ -16,26 +16,40 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-4">
+          <div class="col-lg-6 col-md-6 col-6">
             <p>Berat</p>
             <div class="input-group">
               <input type="number" id="berat" name="berat" class="form-control border-dark small mb-3" placeholder="Masukkan Berat Buah" aria-describedby="basic-addon2">
             </div>
             <?= form_error('berat', '<small class="text-danger">', '</small>') ?>
           </div>
-          <div class="col-lg-4 col-md-4 col-4">
+          <div class="col-lg-6 col-md-6 col-6">
             <p>Panjang</p>
             <div class="input-group">
               <input type="number" id="panjang" name="panjang" class="form-control border-dark small mb-3" placeholder="Masukkan Panjang Buah" aria-describedby="basic-addon2">
             </div>
             <?= form_error('panjang', '<small class="text-danger">', '</small>') ?>
           </div>
-          <div class="col-lg-4 col-md-4 col-4">
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-6">
             <p>Diameter</p>
             <div class="input-group">
               <input type="number" id="diameter" name="diameter" class="form-control border-dark small mb-3" placeholder="Masukkan Diameeter Buah" aria-describedby="basic-addon2">
             </div>
             <?= form_error('diameter', '<small class="text-danger">', '</small>') ?>
+          </div>
+          <div class="col-lg-6 col-md-6 col-6">
+            <p>Kelas</p>
+            <div class="input-group">
+              <select class="custom-select" id="klasifikasi_awal" name="klasifikasi_awal">
+                <option selected>Pilih Kelas</option>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+              </select>
+            </div>
+            <?= form_error('klasifikasi_awal', '<small class="text-danger">', '</small>') ?>
           </div>
         </div>
         <button type="submit" class="btn btn-info btn-icon-split">

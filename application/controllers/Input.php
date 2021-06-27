@@ -15,6 +15,7 @@ class Input extends CI_Controller
         $this->form_validation->set_rules('berat', 'Berat Buah', 'required');
         $this->form_validation->set_rules('panjang', 'panjang Buah', 'required');
         $this->form_validation->set_rules('diameter', 'diameter Buah', 'required');
+        $this->form_validation->set_rules('klasifikasi_awal', 'Klasifikasi Buah', 'required');
 
 
         if ($this->form_validation->run() == false) {
@@ -30,24 +31,17 @@ class Input extends CI_Controller
             $berat = $this->input->post('berat');
             $panjang = $this->input->post('panjang');
             $diameter = $this->input->post('diameter');
-            // $setJarak = $jarak * 0.4;
-            // $setPenghasilan = $penghasilan * 0.3;
-            // $setKehadiran = $kehadiran * 0.3;
-            // $setAkhir = $setJarak + $setPenghasilan + $setKehadiran;
             $tambah = $this->mi->insert("buah_naga", array(
                 'nama_buah' => $this->input->post('nama_buah'),
                 'berat' => $this->input->post('berat'),
                 'panjang' => $this->input->post('panjang'),
                 'diameter' => $this->input->post('diameter'),
-                // 'kelas' => $this->input->post('kelas'),
-                // 'tanggal_lahir' => $this->input->post('singleDatePicker'),
-                // 'jarak_tempuh_rumah' => $this->input->post('jarak_tempuh'),
-                // 'penghasilan' => $this->input->post('penghasilan'),
-                // 'kehadiran' => $this->input->post('kehadiran'),
-                // 'c1' => '',
-                // 'c2' => '',
-                // 'c3' => '',
-                // 'nilai_akhir' => '',
+                // 'jumlah' => '',
+                // 'nilai_c1' => '',
+                // 'nilai_c2' => '',
+                // 'nilai_c3' => '',
+                'klasifikasi_awal' =>  $this->input->post('klasifikasi_awal'),
+                // 'klasifikasi_akhir' => '',
                 'createdDate' => date('Y-m-d H:i:s'),
 
             ));
@@ -63,5 +57,56 @@ class Input extends CI_Controller
                 redirect('Input');
             }
         }
+    }
+    public function proses()
+    {
+        // $klasifikasiA = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '1'")->result_array();
+        // $klasifikasiB = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '2'")->result_array();
+        // $klasifikasiC = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '3'")->result_array();
+
+        $beratA = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
+        $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
+        $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
+
+        $beratB = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
+        $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
+        $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
+
+        $beratC = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
+        $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
+        $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
+
+        $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
+        $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
+        $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
+
+        $perhitunganA = [
+            'berat' => $beratA->berat / $jumA->id,
+            'panjang' => $panjangA->panjang / $jumA->id,
+            'diameter' => $diameterA->diameter / $jumA->id,
+        ];
+        $perhitunganB = [
+            'berat' => $beratB->berat / $jumB->id,
+            'panjang' => $panjangB->panjang / $jumB->id,
+            'diameter' => $diameterB->diameter / $jumB->id,
+        ];
+        $perhitunganC = [
+            'berat' => $beratC->berat / $jumC->id,
+            'panjang' => $panjangC->panjang / $jumC->id,
+            'diameter' => $diameterC->diameter / $jumC->id,
+        ];
+
+        $this->db->where('id_centroid', '1');
+        $this->db->update('centroid', $perhitunganA);
+
+        $this->db->where('id_centroid', '2');
+        $this->db->update('centroid', $perhitunganB);
+
+        $this->db->where('id_centroid', '3');
+        $this->db->update('centroid', $perhitunganC);
+
+        echo json_encode($perhitunganA);
+        echo json_encode($perhitunganB);
+        echo json_encode($perhitunganC);
     }
 }

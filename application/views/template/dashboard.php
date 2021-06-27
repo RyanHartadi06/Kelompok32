@@ -6,7 +6,7 @@
       <div class="row align-items-center justify-content-between">
         <div class="col">
           <h2 class="text-primary">Selamat Datang Di Halaman Admin</h2>
-          <p class="text-gray-700">Aplikasi Sistem Pendukung Keputusan Kualitas Buah Naga Putih Dengan Metode Simple Additive Weighting (SAW) </p>
+          <p class="text-gray-700">Aplikasi Sistem Pendukung Keputusan Kualitas Buah Naga Putih Dengan Metode K-Means </p>
           <a class="btn btn-primary p-3" href="#!">
             Get Started
             <i class="ml-1" data-feather="arrow-right"></i>
@@ -46,7 +46,7 @@
                         Berat
                       </td>
                       <td>
-                        <?= $bobot->berat ?></td>
+                        <?= $centroid->berat ?></td>
                     </tr>
                     <tr>
                       <td>2</td>
@@ -54,7 +54,7 @@
                         Panjang
                       </td>
                       <td>
-                        <?= $bobot->panjang ?></td>
+                        <?= $centroid->panjang ?></td>
                     </tr>
                     <tr>
                       <td>3</td>
@@ -62,7 +62,7 @@
                         Diameter
                       </td>
                       <td>
-                        <?= $bobot->diameter ?></td>
+                        <?= $centroid->diameter ?></td>
                     </tr>
                   </tbody>
                 </table>

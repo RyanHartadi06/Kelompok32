@@ -35,7 +35,11 @@
             <div class="col mt-3">
               <?php echo $this->session->flashdata('pesan') ?>
             </div>
+
             <div class="card-body">
+              <div class="col mb-3">
+                <a href="<?= base_url('Input/proses') ?>" class="btn btn-primary">Proses Kmeans</a>
+              </div>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
