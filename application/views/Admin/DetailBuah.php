@@ -26,7 +26,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Buah Naga</h1>
+          <h1 class="h3 mb-2 text-gray-800">Detail Buah Naga</h1>
 
           <!-- Sub Topbar -->
           <div class="card shadow mb-4">
@@ -39,37 +39,24 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Buah</th>
-                      <th>Berat</th>
-                      <th>Panjang</th>
-                      <th>Diameter</th>
-                      <th style="width: 100px">Aksi</th>
-                    </tr>
                   </thead>
                   <tbody id="target">
-                    <?php
-                    $no = 1;
-                    foreach ($buah as $row) {
-                      ?>
                       <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $row['nama_buah'] ?></td>
-                        <td><?= $row['berat'] ?></td>
-                        <td><?= $row['panjang'] ?></td>
-                        <td><?= $row['diameter'] ?></td>
-                        <td>
-                          <a href="<?php echo base_url("Buah/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
-                            <i class="fas fa-plus"></i></a>
-                          <a href="<?php echo base_url("Buah/edit/" . $row['id_buah']); ?>" class="btn btn-sm btn-primary btn-circle">
-                            <i class="fas fa-pen"></i></a>
-                          <a href="#" onclick="confirm_modal('<?= 'Buah/hapus/' . $row['id_buah'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
-                            <i class="fa fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
-                    <?php } ?>
+                <td>NAMA BUAH</td>
+                <td><?= $buah['nama_buah']; ?></td>
+              </tr>
+              <tr>
+                <td>BERAT</td>
+                <td><?= $buah['berat']; ?></td>
+              </tr>
+              <tr>
+                <td>PANJANG</td>
+                <td><?= $buah['panjang']; ?></td>
+              </tr>
+              <tr>
+                <td>DIAMETER</td>
+                <td><?= $buah['diameter']; ?></td>
+              </tr>
                   </tbody>
                 </table>
                 <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -92,6 +79,12 @@
               </div>
             </div> <!-- End Card Body -->
           </div>
+          <a href="<?= base_url('Buah') ?>" class="btn btn-danger btn-icon-split">
+          <span class="icon text-white-50">
+            <i class="fas fa-reply"></i>
+          </span>
+          <span class="text">Kembali</span>
+        </a>
 
         </div>
         <!-- /.container-fluid -->

@@ -10,7 +10,7 @@ class Buah extends CI_Controller
     }
     public function index()
     {
-        $data['title'] = "List Calon Beasiswa";
+        $data['title'] = "Detail Buah";
         $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['buah'] = $this->db->query("SELECT * FROM buah_naga GROUP BY id_buah desc")->result_array();
@@ -21,12 +21,13 @@ class Buah extends CI_Controller
     }
     public function detail($id)
     {
-        $data['title'] = "List Calon Beasiswa";
+        $data['title'] = "Detail Buah";
         $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['buah'] = $this->db->query("SELECT * FROM buah_naga WHERE id_buah=$id")->row_array();
         $this->load->view("template/sidebar");
         $this->load->view("template/header", $data);
-        $this->load->view('Admin/Detail_Siswa');
+        $this->load->view('Admin/DetailBuah', $data);
         $this->load->view("template/footer");
     }
     public function edit($id)
