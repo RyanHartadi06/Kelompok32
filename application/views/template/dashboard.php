@@ -34,36 +34,33 @@
                 <table class="table table-bordered table-hover" id="dataTableActivity" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Nomor</th>
-                      <th>Bobot</th>
-                      <th>Nilai</th>
+                      <th>No</th>
+                      <th>Berat</th>
+                      <th>Panjang</th>
+                      <th>Diameter<th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        Berat
-                      </td>
-                      <td>
-                        <?= $centroid->berat ?></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>
-                        Panjang
-                      </td>
-                      <td>
-                        <?= $centroid->panjang ?></td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>
-                        Diameter
-                      </td>
-                      <td>
-                        <?= $centroid->diameter ?></td>
-                    </tr>
+                  <tbody id="tirgit">
+                  <?php
+                  $no = 1;
+                  foreach ($centroid as $row) {
+                   ?>
+                   <tr>
+                   <td><?= $no++ ?></td>
+                   <td><?= $row['berat'] ?></td>
+                   <td><?= $row['panjang'] ?></td>
+                   <td><?= $row['diameter'] ?></td>
+                   <!-- <td>
+                          <a href="#url" class="btn btn-sm btn-success btn-circle">
+                            <i class="fas fa-plus"></i></a>
+                          <a href="#url" class="btn btn-sm btn-primary btn-circle">
+                            <i class="fas fa-pen"></i></a>
+                          <a href="#" onclick="confirm_modal('#url')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
+                            <i class="fa fa-trash"></i>
+                          </a>
+                        </td> -->
+                   </tr>
+                   <?php } ?>
                   </tbody>
                 </table>
               </div>
