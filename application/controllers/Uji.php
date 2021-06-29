@@ -30,16 +30,30 @@ class Uji extends CI_Controller
             $berat = $this->input->post('berat');
             $panjang = $this->input->post('panjang');
             $diameter = $this->input->post('diameter');
-            $tambah = $this->mi->insert("data_uji", array(
+
+            $centorid1 = $this->db->get_where('centroid', ['id_centroid' => 1])->result_array();
+            $centorid2 = $this->db->get_where('centroid', ['id_centroid' => 2])->result_array();
+            $centorid3 = $this->db->get_where('centroid', ['id_centroid' => 3])->result_array();
+            $c1 = sqrt(pow(($berat - $centorid1[0]['berat']), 2) + pow(($panjang - $centorid1[0]['panjang']), 2) + pow(($diameter - $centorid1[0]['diameter']), 2));
+
+            $c2 = sqrt(pow(($berat - $centorid2[0]['berat']), 2) + pow(($panjang - $centorid2[0]['panjang']), 2) + pow(($diameter - $centorid2[0]['diameter']), 2));
+
+            $c3 = sqrt(pow(($berat - $centorid3[0]['berat']), 2) + pow(($panjang - $centorid3[0]['panjang']), 2) + pow(($diameter - $centorid3[0]['diameter']), 2));
+
+            $jarakterdekat = min($c1, $c2, $c3);
+            // var_dump(min($c1, $c2, $c3));die;
+
+
+            $tambah = $this->db->insert("uji", array(
                 'nama_buah' => $this->input->post('nama_buah'),
                 'berat' => $this->input->post('berat'),
                 'panjang' => $this->input->post('panjang'),
                 'diameter' => $this->input->post('diameter'),
-                // 'jumlah' => '',
-                // 'nilai_c1' => '',
-                // 'nilai_c2' => '',
-                // 'nilai_c3' => '',
-                // 'klasifikasi' => "",
+                'jarak_terdekat' => $jarakterdekat,
+                'nilai_c1' => $c1,
+                'nilai_c2' => $c2,
+                'nilai_c3' => $c3,
+                'klasifikasi' => "",
                 // 'klasifikasi_akhir' => '',
                 'createdDate' => date('Y-m-d H:i:s'),
 
