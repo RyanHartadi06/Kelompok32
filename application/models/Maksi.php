@@ -4,7 +4,7 @@ class Maksi extends CI_Model
     public function hapusdata($id)
     {
         $this->db->where('id_buah', $id);
-        return $this->db->delete('buah_naga');
+        return $this->db->delete('data_latih');
     }
     function randomkode($maxlength)
     {

@@ -13,7 +13,7 @@ class Buah extends CI_Controller
         $data['title'] = "Detail Buah";
         $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['buah'] = $this->db->query("SELECT * FROM buah_naga GROUP BY id_buah desc")->result_array();
+        $data['buah'] = $this->db->query("SELECT * FROM data_latih GROUP BY id_buah desc")->result_array();
         $this->load->view("template/sidebar");
         $this->load->view("template/header", $data);
         $this->load->view('Admin/Buah', $data);
@@ -24,7 +24,7 @@ class Buah extends CI_Controller
         $data['title'] = "Detail Buah";
         $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
-        $data['buah'] = $this->db->query("SELECT * FROM buah_naga WHERE id_buah=$id")->row_array();
+        $data['buah'] = $this->db->query("SELECT * FROM data_latih WHERE id_buah=$id")->row_array();
         $this->load->view("template/sidebar");
         $this->load->view("template/header", $data);
         $this->load->view('Admin/DetailBuah', $data);

@@ -30,7 +30,7 @@ class Uji extends CI_Controller
             $berat = $this->input->post('berat');
             $panjang = $this->input->post('panjang');
             $diameter = $this->input->post('diameter');
-            $tambah = $this->mi->insert("buah_naga", array(
+            $tambah = $this->mi->insert("data_uji", array(
                 'nama_buah' => $this->input->post('nama_buah'),
                 'berat' => $this->input->post('berat'),
                 'panjang' => $this->input->post('panjang'),

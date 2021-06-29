@@ -31,17 +31,12 @@ class Input extends CI_Controller
             $berat = $this->input->post('berat');
             $panjang = $this->input->post('panjang');
             $diameter = $this->input->post('diameter');
-            $tambah = $this->mi->insert("buah_naga", array(
+            $tambah = $this->mi->insert("data_latih", array(
                 'nama_buah' => $this->input->post('nama_buah'),
                 'berat' => $this->input->post('berat'),
                 'panjang' => $this->input->post('panjang'),
                 'diameter' => $this->input->post('diameter'),
-                // 'jumlah' => '',
-                // 'nilai_c1' => '',
-                // 'nilai_c2' => '',
-                // 'nilai_c3' => '',
                 'klasifikasi' =>  $this->input->post('klasifikasi'),
-                // 'klasifikasi_akhir' => '',
                 'createdDate' => date('Y-m-d H:i:s'),
 
             ));
