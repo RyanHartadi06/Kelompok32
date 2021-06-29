@@ -6,7 +6,6 @@ class Centroid extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('Model_Input', 'mi');
     belumlogin();
   }
   public function index()
