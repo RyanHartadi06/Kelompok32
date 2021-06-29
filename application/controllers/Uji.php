@@ -41,10 +41,19 @@ class Uji extends CI_Controller
             $c3 = sqrt(pow(($berat - $centorid3[0]['berat']), 2) + pow(($panjang - $centorid3[0]['panjang']), 2) + pow(($diameter - $centorid3[0]['diameter']), 2));
 
             $jarakterdekat = min($c1, $c2, $c3);
-            // var_dump(min($c1, $c2, $c3));die;
-
-
-            $tambah = $this->db->insert("uji", array(
+            $klasifikasi = "";
+            // echo $jarakterdekat;
+            if ($jarakterdekat == $c1) {
+                $klasifikasi = "A";
+            }
+            if ($jarakterdekat == $c2) {
+                $klasifikasi = "B";
+            }
+            if ($jarakterdekat == $c3) {
+                $klasifikasi = "C";
+            }
+            // echo $klasifikasi;
+            $tambah = $this->db->insert("data_uji", array(
                 'nama_buah' => $this->input->post('nama_buah'),
                 'berat' => $this->input->post('berat'),
                 'panjang' => $this->input->post('panjang'),
@@ -53,12 +62,62 @@ class Uji extends CI_Controller
                 'nilai_c1' => $c1,
                 'nilai_c2' => $c2,
                 'nilai_c3' => $c3,
-                'klasifikasi' => "",
-                // 'klasifikasi_akhir' => '',
+                'klasifikasi' => $klasifikasi,
                 'createdDate' => date('Y-m-d H:i:s'),
-
             ));
+
+
             if ($tambah) {
+                $this->db->insert("data_latih", array(
+                    'nama_buah' => $this->input->post('nama_buah'),
+                    'berat' => $this->input->post('berat'),
+                    'panjang' => $this->input->post('panjang'),
+                    'diameter' => $this->input->post('diameter'),
+                    'klasifikasi' => $klasifikasi,
+                    'createdDate' => date('Y-m-d H:i:s'),
+                ));
+                // $this->centroid();
+                $beratA = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'A'")->row();
+                $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'A'")->row();
+                $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'A'")->row();
+
+                $beratB = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'B'")->row();
+                $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'B'")->row();
+                $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'B'")->row();
+
+                $beratC = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'C'")->row();
+                $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'C'")->row();
+                $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'C'")->row();
+
+                $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'A'")->row();
+                $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'B'")->row();
+                $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'C'")->row();
+
+                $perhitunganA = [
+                    'berat' => $beratA->berat / $jumA->id,
+                    'panjang' => $panjangA->panjang / $jumA->id,
+                    'diameter' => $diameterA->diameter / $jumA->id,
+                ];
+                $perhitunganB = [
+                    'berat' => $beratB->berat / $jumB->id,
+                    'panjang' => $panjangB->panjang / $jumB->id,
+                    'diameter' => $diameterB->diameter / $jumB->id,
+                ];
+                $perhitunganC = [
+                    'berat' => $beratC->berat / $jumC->id,
+                    'panjang' => $panjangC->panjang / $jumC->id,
+                    'diameter' => $diameterC->diameter / $jumC->id,
+                ];
+
+                $this->db->where('id_centroid', '1');
+                $this->db->update('centroid', $perhitunganA);
+
+                $this->db->where('id_centroid', '2');
+                $this->db->update('centroid', $perhitunganB);
+
+                $this->db->where('id_centroid', '3');
+                $this->db->update('centroid', $perhitunganC);
+
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
                         Berhasil Menambahkan data buah!
                         </div>');
@@ -70,5 +129,48 @@ class Uji extends CI_Controller
                 redirect('Uji');
             }
         }
+    }
+    public function centroid()
+    {
+        $beratA = $this->db->query("SELECT SUM(berat) as berat FROM data_uji WHERE klasifikasi = 'A'")->row();
+        $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM data_uji WHERE klasifikasi = 'A'")->row();
+        $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM data_uji WHERE klasifikasi = 'A'")->row();
+
+        $beratB = $this->db->query("SELECT SUM(berat) as berat FROM data_uji WHERE klasifikasi = 'B'")->row();
+        $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM data_uji WHERE klasifikasi = 'B'")->row();
+        $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM data_uji WHERE klasifikasi = 'B'")->row();
+
+        $beratC = $this->db->query("SELECT SUM(berat) as berat FROM data_uji WHERE klasifikasi = 'C'")->row();
+        $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM data_uji WHERE klasifikasi = 'C'")->row();
+        $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM data_uji WHERE klasifikasi = 'C'")->row();
+
+        $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM data_uji WHERE klasifikasi = 'A'")->row();
+        $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM data_uji WHERE klasifikasi = 'B'")->row();
+        $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM data_uji WHERE klasifikasi = 'C'")->row();
+
+        $perhitunganA = [
+            'berat' => $beratA->berat / $jumA->id,
+            'panjang' => $panjangA->panjang / $jumA->id,
+            'diameter' => $diameterA->diameter / $jumA->id,
+        ];
+        $perhitunganB = [
+            'berat' => $beratB->berat / $jumB->id,
+            'panjang' => $panjangB->panjang / $jumB->id,
+            'diameter' => $diameterB->diameter / $jumB->id,
+        ];
+        $perhitunganC = [
+            'berat' => $beratC->berat / $jumC->id,
+            'panjang' => $panjangC->panjang / $jumC->id,
+            'diameter' => $diameterC->diameter / $jumC->id,
+        ];
+
+        $this->db->where('id_centroid', '1');
+        $this->db->update('centroid', $perhitunganA);
+
+        $this->db->where('id_centroid', '2');
+        $this->db->update('centroid', $perhitunganB);
+
+        $this->db->where('id_centroid', '3');
+        $this->db->update('centroid', $perhitunganC);
     }
 }
