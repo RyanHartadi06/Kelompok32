@@ -66,8 +66,8 @@
                         <td>
                           <a href="<?php echo base_url("Buah/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
                             <i class="fas fa-plus"></i></a>
-                          <a href="<?php echo base_url("Buah/edit/" . $row['id_buah']); ?>" class="btn btn-sm btn-primary btn-circle">
-                            <i class="fas fa-pen"></i></a>
+                          <!-- <a href="<?php echo base_url("Buah/edit/" . $row['id_buah']); ?>" class="btn btn-sm btn-primary btn-circle">
+                            <i class="fas fa-pen"></i></a> -->
                           <a href="#" onclick="confirm_modal('<?= 'Buah/hapus/' . $row['id_buah'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
                             <i class="fa fa-trash"></i>
                           </a>

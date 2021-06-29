@@ -6,7 +6,7 @@ class Input extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Model_Input', 'mi');
+        $this->load->model('Maksi', 'mi');
         belumlogin();
     }
     public function index()
@@ -15,7 +15,7 @@ class Input extends CI_Controller
         $this->form_validation->set_rules('berat', 'Berat Buah', 'required');
         $this->form_validation->set_rules('panjang', 'panjang Buah', 'required');
         $this->form_validation->set_rules('diameter', 'diameter Buah', 'required');
-        $this->form_validation->set_rules('klasifikasi_awal', 'Klasifikasi Buah', 'required');
+        $this->form_validation->set_rules('klasifikasi', 'Klasifikasi Buah', 'required');
 
 
         if ($this->form_validation->run() == false) {
