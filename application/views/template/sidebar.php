@@ -44,25 +44,14 @@
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url("Input") ?>">
         <i class="fas fa-fw fa-plus"></i>
-        <span>Input Data Buah Naga</span></a>
+        <span>Input Data Latih</span></a>
     </li>
-    <!-- <div class="sidebar-heading">
-      Laporan
-    </div>
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url("Ranking") ?>">
-        <i class="fas fa-fw fa-trophy"></i>
-        <span>Ranking</span></a>
-    </li> -->
-    <!-- <li class="nav-item">
-      <a class="nav-link" href="">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Report Beasiswa</span></a>
-    </li> -->
+      <a class="nav-link" href="<?= base_url("Uji") ?>">
+        <i class="fas fa-fw fa-plus"></i>
+        <span>Input Data Uji</span></a>
+    </li>
 
-    <!-- <div class="sidebar-heading">
-      Sistem
-    </div> -->
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url('auth/logout') ?>" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt"></i>
