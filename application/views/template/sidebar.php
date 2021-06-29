@@ -24,7 +24,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Heading -->
-
+    <!-- 
     <div class="sidebar-heading">
       Bobot
     </div>
@@ -32,7 +32,7 @@
       <a class="nav-link" href="<?= base_url("Centroid") ?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Centroid Sistem</span></a>
-    </li>
+    </li> -->
     <div class="sidebar-heading">
       Data Buah Naga
     </div>

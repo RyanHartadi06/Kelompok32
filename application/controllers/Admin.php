@@ -12,7 +12,7 @@ class Admin extends CI_Controller
         $data['admin'] = $this->db->get_where('pengguna', ['email' =>
         $this->session->userdata('email')])->row_array();
         //$data['centroid'] = $this->db->query("SELECT * FROM centroid WHERE id_centroid = '1'")->row();
-        $data['centroid'] = $this->db->query("SELECT * FROM centroid GROUP BY id_centroid asc")->result_array();
+        $data['centroid'] = $this->db->query("SELECT * FROM centroid")->result_array();
         $this->load->view("template/sidebar");
         $this->load->view("template/header", $data);
         $this->load->view("template/dashboard", $data);

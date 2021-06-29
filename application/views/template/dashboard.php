@@ -23,7 +23,7 @@
         <div class="card-header border-bottom">
           <!-- Dashboard card navigation-->
           <ul class="nav nav-tabs card-header-tabs" id="dashboardNav" role="tablist">
-            <li class="nav-item mr-1"><a class="nav-link active" id="bobot-pill" href="#bobot" data-toggle="tab" role="tab" aria-controls="bobot" aria-selected="true">Range bobot (Benefit)</a></li>
+            <li class="nav-item mr-1"><a class="nav-link active" id="bobot-pill" href="#bobot" data-toggle="tab" role="tab" aria-controls="bobot" aria-selected="true">Centroid</a></li>
           </ul>
         </div>
         <div class="card-body">
@@ -37,30 +37,31 @@
                       <th>No</th>
                       <th>Berat</th>
                       <th>Panjang</th>
-                      <th>Diameter<th>
+                      <th>Diameter
+                      </th>
                     </tr>
                   </thead>
                   <tbody id="tirgit">
-                  <?php
-                  $no = 1;
-                  foreach ($centroid as $row) {
-                   ?>
-                   <tr>
-                   <td><?= $no++ ?></td>
-                   <td><?= $row['berat'] ?></td>
-                   <td><?= $row['panjang'] ?></td>
-                   <td><?= $row['diameter'] ?></td>
-                   <!-- <td>
-                          <a href="#url" class="btn btn-sm btn-success btn-circle">
-                            <i class="fas fa-plus"></i></a>
-                          <a href="#url" class="btn btn-sm btn-primary btn-circle">
-                            <i class="fas fa-pen"></i></a>
-                          <a href="#" onclick="confirm_modal('#url')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
-                            <i class="fa fa-trash"></i>
-                          </a>
-                        </td> -->
-                   </tr>
-                   <?php } ?>
+                    <?php
+                    $no = 1;
+                    foreach ($centroid as $row) {
+                      ?>
+                      <tr>
+                        <td>
+                          <?php
+                            if ($row['id_centroid'] == 1) {
+                              echo "Kelas A";
+                            } elseif ($row['id_centroid'] == "2") {
+                              echo "Kelas B";
+                            } elseif ($row['id_centroid'] == "3") {
+                              echo "Kelas C";
+                            } ?>
+                        </td>
+                        <td><?= $row['berat'] ?></td>
+                        <td><?= $row['panjang'] ?></td>
+                        <td><?= $row['diameter'] ?></td>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
