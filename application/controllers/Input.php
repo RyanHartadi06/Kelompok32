@@ -40,7 +40,7 @@ class Input extends CI_Controller
                 // 'nilai_c1' => '',
                 // 'nilai_c2' => '',
                 // 'nilai_c3' => '',
-                'klasifikasi_awal' =>  $this->input->post('klasifikasi_awal'),
+                'klasifikasi' =>  $this->input->post('klasifikasi'),
                 // 'klasifikasi_akhir' => '',
                 'createdDate' => date('Y-m-d H:i:s'),
 
@@ -60,25 +60,25 @@ class Input extends CI_Controller
     }
     public function proses()
     {
-        // $klasifikasiA = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '1'")->result_array();
+        // $klasifikasiA = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = 'A'")->result_array();
         // $klasifikasiB = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '2'")->result_array();
         // $klasifikasiC = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '3'")->result_array();
 
-        $beratA = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
-        $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
-        $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
+        $beratA = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi = 'A'")->row();
+        $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi = 'A'")->row();
+        $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi = 'A'")->row();
 
-        $beratB = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
-        $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
-        $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
+        $beratB = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi = 'B'")->row();
+        $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi = 'B'")->row();
+        $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi = 'B'")->row();
 
-        $beratC = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
-        $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
-        $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
+        $beratC = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi = 'C'")->row();
+        $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi = 'C'")->row();
+        $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi = 'C'")->row();
 
-        $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi_awal = '1'")->row();
-        $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi_awal = '2'")->row();
-        $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi_awal = '3'")->row();
+        $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi = 'A'")->row();
+        $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi = 'B'")->row();
+        $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi = 'C'")->row();
 
         $perhitunganA = [
             'berat' => $beratA->berat / $jumA->id,
