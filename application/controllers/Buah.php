@@ -19,6 +19,19 @@ class Buah extends CI_Controller
         $this->load->view('Admin/Buah', $data);
         $this->load->view("template/footer");
     }
+
+    public function dataUji()
+    {
+        $data['title'] = "Data Uji Buah";
+        $data['admin'] = $this->db->get_where('pengguna', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['buah'] = $this->db->query("SELECT * FROM data_uji GROUP BY id_buah desc")->result_array();
+        $this->load->view("template/sidebar");
+        $this->load->view("template/header", $data);
+        $this->load->view('Admin/dataUji', $data);
+        $this->load->view("template/footer");
+    }
+
     public function detail($id)
     {
         $data['title'] = "Detail Buah";

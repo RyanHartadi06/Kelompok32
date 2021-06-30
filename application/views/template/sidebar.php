@@ -42,6 +42,11 @@
         <span>Data Buah Naga</span></a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="<?= base_url("Buah") ?>">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Data Uji</span></a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="<?= base_url("Input") ?>">
         <i class="fas fa-fw fa-plus"></i>
         <span>Input Data Latih</span></a>

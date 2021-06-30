@@ -118,10 +118,14 @@ class Uji extends CI_Controller
                 $this->db->where('id_centroid', '3');
                 $this->db->update('centroid', $perhitunganC);
 
+                $last_row = $this->db->select('id_buah')->order_by('id_buah',"desc")->limit(1)->get('data_uji')->result_array();
+
+                // echo json_encode($last_row[0]['id_buah']);die;
+
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-                        Berhasil Menambahkan data buah!
+                        Data buah berhasil ditambahkan dan diuji dengan hasil klasifikasi Kelas '. $klasifikasi .' !
                         </div>');
-                redirect('Uji');
+                redirect('Uji/detailUji/' . $last_row[0]['id_buah']);
             } else {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
                             Gagal Menambahkan data buah!
@@ -130,47 +134,20 @@ class Uji extends CI_Controller
             }
         }
     }
-    public function centroid()
+    public function detailUji($id)
     {
-        $beratA = $this->db->query("SELECT SUM(berat) as berat FROM data_uji WHERE klasifikasi = 'A'")->row();
-        $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM data_uji WHERE klasifikasi = 'A'")->row();
-        $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM data_uji WHERE klasifikasi = 'A'")->row();
+        if ($id) {
+            $data['title'] = "Input Buah";
+            $data['buah'] = $this->db->get_where('data_uji', ['id_buah' => $id])->row_array();
+            $data['admin'] = $this->db->get_where('pengguna', ['email' =>
+            $this->session->userdata('email')])->row_array();
+            $this->load->view("template/sidebar");
+            $this->load->view("template/header", $data);
+            $this->load->view('Admin/detail', $data);
+            $this->load->view("template/footer");
 
-        $beratB = $this->db->query("SELECT SUM(berat) as berat FROM data_uji WHERE klasifikasi = 'B'")->row();
-        $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM data_uji WHERE klasifikasi = 'B'")->row();
-        $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM data_uji WHERE klasifikasi = 'B'")->row();
-
-        $beratC = $this->db->query("SELECT SUM(berat) as berat FROM data_uji WHERE klasifikasi = 'C'")->row();
-        $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM data_uji WHERE klasifikasi = 'C'")->row();
-        $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM data_uji WHERE klasifikasi = 'C'")->row();
-
-        $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM data_uji WHERE klasifikasi = 'A'")->row();
-        $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM data_uji WHERE klasifikasi = 'B'")->row();
-        $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM data_uji WHERE klasifikasi = 'C'")->row();
-
-        $perhitunganA = [
-            'berat' => $beratA->berat / $jumA->id,
-            'panjang' => $panjangA->panjang / $jumA->id,
-            'diameter' => $diameterA->diameter / $jumA->id,
-        ];
-        $perhitunganB = [
-            'berat' => $beratB->berat / $jumB->id,
-            'panjang' => $panjangB->panjang / $jumB->id,
-            'diameter' => $diameterB->diameter / $jumB->id,
-        ];
-        $perhitunganC = [
-            'berat' => $beratC->berat / $jumC->id,
-            'panjang' => $panjangC->panjang / $jumC->id,
-            'diameter' => $diameterC->diameter / $jumC->id,
-        ];
-
-        $this->db->where('id_centroid', '1');
-        $this->db->update('centroid', $perhitunganA);
-
-        $this->db->where('id_centroid', '2');
-        $this->db->update('centroid', $perhitunganB);
-
-        $this->db->where('id_centroid', '3');
-        $this->db->update('centroid', $perhitunganC);
+        }else{
+            redirect(base_url());
+        }
     }
 }
