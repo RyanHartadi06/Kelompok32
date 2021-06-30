@@ -41,42 +41,42 @@
                   <thead>
                   </thead>
                   <tbody id="target">
-                      <tr>
-                <td>NAMA BUAH</td>
-                <td><?= $buah['nama_buah']; ?></td>
-              </tr>
-              <tr>
-                <td>BERAT</td>
-                <td><?= $buah['berat']; ?></td>
-              </tr>
-              <tr>
-                <td>PANJANG</td>
-                <td><?= $buah['panjang']; ?></td>
-              </tr>
-              <tr>
-                <td>DIAMETER</td>
-                <td><?= $buah['diameter']; ?></td>
-              </tr>
-              <tr>
-                <td>Nilai C1</td>
-                <td><?= $buah['nilai_c1']; ?></td>
-              </tr>
-              <tr>
-                <td>Nilai C2</td>
-                <td><?= $buah['nilai_c2']; ?></td>
-              </tr>
-              <tr>
-                <td>Nilai C3</td>
-                <td><?= $buah['nilai_c3']; ?></td>
-              </tr>
-              <tr>
-                <td>Jarak Terdekat</td>
-                <td><?= $buah['jarak_terdekat']; ?></td>
-              </tr>
-              <tr>
-                <td>Klasifikasi</td>
-                <td><?= $buah['klasifikasi']; ?></td>
-              </tr>
+                    <tr>
+                      <td>NAMA BUAH</td>
+                      <td><?= $buah['nama_buah']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>BERAT</td>
+                      <td><?= $buah['berat']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>PANJANG</td>
+                      <td><?= $buah['panjang']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>DIAMETER</td>
+                      <td><?= $buah['diameter']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>Nilai C1</td>
+                      <td><?= $buah['nilai_c1']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>Nilai C2</td>
+                      <td><?= $buah['nilai_c2']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>Nilai C3</td>
+                      <td><?= $buah['nilai_c3']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>Jarak Terdekat</td>
+                      <td><?= $buah['jarak_terdekat']; ?></td>
+                    </tr>
+                    <tr>
+                      <td>Klasifikasi</td>
+                      <td><?= $buah['klasifikasi']; ?></td>
+                    </tr>
 
                   </tbody>
                 </table>
@@ -101,11 +101,11 @@
             </div> <!-- End Card Body -->
           </div>
           <a href="<?= base_url('DataUji') ?>" class="btn btn-danger btn-icon-split">
-          <span class="icon text-white-50">
-            <i class="fas fa-reply"></i>
-          </span>
-          <span class="text">Kembali</span>
-        </a>
+            <span class="icon text-white-50">
+              <i class="fas fa-reply"></i>
+            </span>
+            <span class="text">Kembali</span>
+          </a>
 
         </div>
         <!-- /.container-fluid -->

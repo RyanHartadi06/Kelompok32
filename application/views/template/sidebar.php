@@ -34,13 +34,22 @@
         <span>Centroid Sistem</span></a>
     </li> -->
     <div class="sidebar-heading">
-      Data Buah Naga
+      Data Latih Buah Naga
     </div>
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url("Buah") ?>">
         <i class="fas fa-fw fa-user"></i>
-        <span>Data Buah Naga</span></a>
+        <span>Data Latih Buah Naga</span></a>
     </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link" href="<?= base_url("Input") ?>">
+        <i class="fas fa-fw fa-plus"></i>
+        <span>Input Data Latih</span></a>
+    </li>
+
+    <hr class="sidebar-divider">
     <div class="sidebar-heading">
       Data Uji
     </div>
@@ -50,14 +59,9 @@
         <span>Data Uji Buah Naga</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url("Input") ?>">
-        <i class="fas fa-fw fa-plus"></i>
-        <span>Input Data Latih</span></a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="<?= base_url("Uji") ?>">
         <i class="fas fa-fw fa-plus"></i>
-        <span>Input Data Uji</span></a>
+        <span>Input Data Uji </span></a>
     </li>
 
     <li class="nav-item">

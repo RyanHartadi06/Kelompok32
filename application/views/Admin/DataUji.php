@@ -49,10 +49,6 @@
                       <th>Berat</th>
                       <th>Panjang</th>
                       <th>Diameter</th>
-                      <th>nilai_c1</th>
-                      <th>nilai_c2</th>
-                      <th>nilai_c3</th>
-                      <th>jarak_terdekat</th>
                       <th>klasifikasi</th>
                       <th style="width: 100px">Aksi</th>
                     </tr>
@@ -68,19 +64,15 @@
                         <td><?= $row['berat'] ?></td>
                         <td><?= $row['panjang'] ?></td>
                         <td><?= $row['diameter'] ?></td>
-                        <td><?= $row['nilai_c1'] ?></td>
-                        <td><?= $row['nilai_c2'] ?></td>
-                        <td><?= $row['nilai_c3'] ?></td>
-                        <td><?= $row['jarak_terdekat'] ?></td>
                         <td><?= $row['klasifikasi'] ?></td>
                         <td>
                           <a href="<?php echo base_url("DataUji/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
                             <i class="fas fa-plus"></i></a>
                           <!-- <a href="<?php echo base_url("Buah/edit/" . $row['id_buah']); ?>" class="btn btn-sm btn-primary btn-circle">
                             <i class="fas fa-pen"></i></a> -->
-                          <a href="#" onclick="confirm_modal('<?= 'DataUji/hapus/' . $row['id_buah'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
+                          <!-- <a href="#" onclick="confirm_modal('<?= 'DataUji/hapus/' . $row['id_buah'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
                             <i class="fa fa-trash"></i>
-                          </a>
+                          </a> -->
                         </td>
                       </tr>
                     <?php } ?>
