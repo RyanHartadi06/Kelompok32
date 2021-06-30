@@ -31,16 +31,12 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-info btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-plus"></i>
-                    </span>
+                <button type="submit" class="btn btn-primary btn-icon-split">
+
                     <span class="text">Kirim Data</span>
                 </button>
                 <a href="<?= base_url('Admin') ?>" class="btn btn-danger btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-reply"></i>
-                    </span>
+
                     <span class="text">Kembali</span>
                 </a>
             </div>

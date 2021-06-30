@@ -24,7 +24,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Heading -->
-
+    <!-- 
     <div class="sidebar-heading">
       Bobot
     </div>
@@ -32,15 +32,17 @@
       <a class="nav-link" href="<?= base_url("Centroid") ?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Centroid Sistem</span></a>
-    </li>
+    </li> -->
     <div class="sidebar-heading">
-      Data Buah Naga
+      Data Latih Buah Naga
     </div>
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url("Buah") ?>">
         <i class="fas fa-fw fa-user"></i>
-        <span>Data Buah Naga</span></a>
+        <span>Data Latih Buah Naga</span></a>
     </li>
+
+
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url("Buah") ?>">
         <i class="fas fa-fw fa-user"></i>
@@ -51,10 +53,20 @@
         <i class="fas fa-fw fa-plus"></i>
         <span>Input Data Latih</span></a>
     </li>
+
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+      Data Uji
+    </div>
+    <li class="nav-item">
+      <a class="nav-link" href="<?= base_url("DataUji") ?>">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Data Uji Buah Naga</span></a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="<?= base_url("Uji") ?>">
         <i class="fas fa-fw fa-plus"></i>
-        <span>Input Data Uji</span></a>
+        <span>Input Data Uji </span></a>
     </li>
 
     <li class="nav-item">

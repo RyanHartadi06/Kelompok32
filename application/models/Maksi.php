@@ -6,6 +6,11 @@ class Maksi extends CI_Model
         $this->db->where('id_buah', $id);
         return $this->db->delete('data_latih');
     }
+    public function hapusdatauji($id)
+    {
+        $this->db->where('id_buah', $id);
+        return $this->db->delete('data_uji');
+    }
     function randomkode($maxlength)
     {
         $chary = array(

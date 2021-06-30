@@ -26,7 +26,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Data Latih Buah Naga</h1>
+          <h1 class="h3 mb-2 text-gray-800">Data Uji Buah Naga</h1>
 
           <!-- Sub Topbar -->
           <div class="card shadow mb-4">
@@ -49,6 +49,7 @@
                       <th>Berat</th>
                       <th>Panjang</th>
                       <th>Diameter</th>
+                      <th>klasifikasi</th>
                       <th style="width: 100px">Aksi</th>
                     </tr>
                   </thead>
@@ -63,14 +64,15 @@
                         <td><?= $row['berat'] ?></td>
                         <td><?= $row['panjang'] ?></td>
                         <td><?= $row['diameter'] ?></td>
+                        <td><?= $row['klasifikasi'] ?></td>
                         <td>
-                          <a href="<?php echo base_url("Buah/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
+                          <a href="<?php echo base_url("DataUji/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
                             <i class="fas fa-plus"></i></a>
                           <!-- <a href="<?php echo base_url("Buah/edit/" . $row['id_buah']); ?>" class="btn btn-sm btn-primary btn-circle">
                             <i class="fas fa-pen"></i></a> -->
-                          <a href="#" onclick="confirm_modal('<?= 'Buah/hapus/' . $row['id_buah'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
+                          <!-- <a href="#" onclick="confirm_modal('<?= 'DataUji/hapus/' . $row['id_buah'] ?>')" class="btn btn-sm btn-danger btn-circle" data-toggle="modal" data-target="#hapusModal">
                             <i class="fa fa-trash"></i>
-                          </a>
+                          </a> -->
                         </td>
                       </tr>
                     <?php } ?>
