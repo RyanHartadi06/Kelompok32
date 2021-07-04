@@ -24,6 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/Kelompok32/';
+// $config['base_url'] = 'http://kelompok32.devliffe.com/';
 /*
 |--------------------------------------------------------------------------
 | Index File
