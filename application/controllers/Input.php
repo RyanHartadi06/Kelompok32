@@ -59,21 +59,21 @@ class Input extends CI_Controller
         // $klasifikasiB = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '2'")->result_array();
         // $klasifikasiC = $this->db->query("SELECT * FROM buah_naga WHERE klasifikasi_awal = '3'")->result_array();
 
-        $beratA = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi = 'A'")->row();
-        $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi = 'A'")->row();
-        $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi = 'A'")->row();
+        $beratA = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'A'")->row();
+        $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'A'")->row();
+        $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'A'")->row();
 
-        $beratB = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi = 'B'")->row();
-        $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi = 'B'")->row();
-        $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi = 'B'")->row();
+        $beratB = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'B'")->row();
+        $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'B'")->row();
+        $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'B'")->row();
 
-        $beratC = $this->db->query("SELECT SUM(berat) as berat FROM buah_naga WHERE klasifikasi = 'C'")->row();
-        $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM buah_naga WHERE klasifikasi = 'C'")->row();
-        $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM buah_naga WHERE klasifikasi = 'C'")->row();
+        $beratC = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'C'")->row();
+        $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'C'")->row();
+        $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'C'")->row();
 
-        $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi = 'A'")->row();
-        $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi = 'B'")->row();
-        $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM buah_naga WHERE klasifikasi = 'C'")->row();
+        $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'A'")->row();
+        $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'B'")->row();
+        $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'C'")->row();
 
         $perhitunganA = [
             'berat' => $beratA->berat / $jumA->id,
@@ -100,8 +100,9 @@ class Input extends CI_Controller
         $this->db->where('id_centroid', '3');
         $this->db->update('centroid', $perhitunganC);
 
-        echo json_encode($perhitunganA);
-        echo json_encode($perhitunganB);
-        echo json_encode($perhitunganC);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+                            Centroid Berhasil Di Update
+                        </div>');
+        redirect('Input');
     }
 }
