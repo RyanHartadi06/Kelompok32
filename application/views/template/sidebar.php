@@ -14,13 +14,19 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-      <a class="nav-link" href="<?= base_url("admin") ?>">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
+      </a>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="<?= base_url("admin") ?>">Dashboard</a>
+          <a class="collapse-item" href="">Author</a>
+        </div>
+      </div>
     </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Heading -->
