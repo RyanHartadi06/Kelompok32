@@ -22,8 +22,8 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" href="<?= base_url("admin") ?>">Dashboard</a>
-          <a class="collapse-item" href="<?= base_url('Author')?>">Author</a>
-          <a class="collapse-item" href="<?= base_url('BuahNagaPutih')?>">Tentang Buah Naga Putih</a>
+          <a class="collapse-item" href="<?= base_url('Author') ?>">Author</a>
+          <a class="collapse-item" href="<?= base_url('BuahNagaPutih') ?>">Tentang Buah Naga Putih</a>
         </div>
       </div>
     </li>
