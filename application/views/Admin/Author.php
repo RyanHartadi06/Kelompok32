@@ -266,7 +266,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-2 d-flex align-items-center justify-content-center">
-                            <img class="img-fluid" style="max-width: 10rem" src="<?= base_url('image/')?>" alt="">
+                            <img class="img-fluid" style="max-width: 10rem" src="<?= base_url('image/titik.jpeg')?>" alt="">
                         </div>
                         <div class="col-lg-10 pt-4 pt-lg-0 content align-items-center">
                             <div class="row">
