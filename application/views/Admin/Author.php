@@ -281,7 +281,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <ul class="list-unstyled">
-                                        <li class="pb-2"><strong>Jenis Kelamin: </strong> Laki Laki</li>
+                                        <li class="pb-2"><strong>Jenis Kelamin: </strong> Perempuan</li>
                                         <li class="pb-2"><strong>Usia: </strong> 21 Tahun </li>
                                         <li class="pb-2"><strong>Email: </strong> <a class="a-link" target="_blank" href="mailto: titikrosanti2000@gmail.com"> titikrosanti2000@gmail.com</a></li>
                                         <li class="pb-2"><strong>Website: </strong> <a class="a-link" target="_blank" href="">-</a></li>
