@@ -41,6 +41,47 @@ class Input extends CI_Controller
 
             ));
             if ($tambah) {
+                $beratA = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'A'")->row();
+                $panjangA = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'A'")->row();
+                $diameterA = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'A'")->row();
+        
+                $beratB = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'B'")->row();
+                $panjangB = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'B'")->row();
+                $diameterB = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'B'")->row();
+        
+                $beratC = $this->db->query("SELECT SUM(berat) as berat FROM data_latih WHERE klasifikasi = 'C'")->row();
+                $panjangC = $this->db->query("SELECT SUM(panjang) as panjang FROM data_latih WHERE klasifikasi = 'C'")->row();
+                $diameterC = $this->db->query("SELECT SUM(diameter) as diameter FROM data_latih WHERE klasifikasi = 'C'")->row();
+        
+                $jumA = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'A'")->row();
+                $jumB = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'B'")->row();
+                $jumC = $this->db->query("SELECT COUNT(id_buah) as id FROM data_latih WHERE klasifikasi = 'C'")->row();
+        
+                $perhitunganA = [
+                    'berat' => $beratA->berat / $jumA->id,
+                    'panjang' => $panjangA->panjang / $jumA->id,
+                    'diameter' => $diameterA->diameter / $jumA->id,
+                ];
+                $perhitunganB = [
+                    'berat' => $beratB->berat / $jumB->id,
+                    'panjang' => $panjangB->panjang / $jumB->id,
+                    'diameter' => $diameterB->diameter / $jumB->id,
+                ];
+                $perhitunganC = [
+                    'berat' => $beratC->berat / $jumC->id,
+                    'panjang' => $panjangC->panjang / $jumC->id,
+                    'diameter' => $diameterC->diameter / $jumC->id,
+                ];
+        
+                $this->db->where('id_centroid', '1');
+                $this->db->update('centroid', $perhitunganA);
+        
+                $this->db->where('id_centroid', '2');
+                $this->db->update('centroid', $perhitunganB);
+        
+                $this->db->where('id_centroid', '3');
+                $this->db->update('centroid', $perhitunganC);
+        
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
                         Berhasil Menambahkan data buah!
                         </div>');
