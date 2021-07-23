@@ -6,7 +6,7 @@
       <div class="row align-items-center justify-content-between">
         <div class="col">
           <h2 class="text-primary">Selamat Datang Di Halaman Admin</h2>
-          <p class="text-gray-700">Aplikasi Penentuan Kualitas Buah Naga Putih Dengan Metode K-Nearest Neighbor (K-NN) </p>
+          <p class="text-gray-700">Aplikasi Sistem Pakar Penentuan Kualitas Buah Naga Putih Dengan Metode K-Nearest Neighbor (K-NN) </p>
           <a class="btn btn-primary p-3" href="<?= base_url("Buah") ?>">
             Get Started
             <i class="ml-1" data-feather="arrow-right"></i>
