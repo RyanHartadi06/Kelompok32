@@ -64,7 +64,7 @@
                         <td><?= $row['panjang'] ?></td>
                         <td><?= $row['diameter'] ?></td>
                         <td>
-                          <a href="<?php echo base_url("Buah/detail/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
+                          <a href="<?php echo base_url("Uji/detailUji/" . $row['id_buah']); ?>" class="btn btn-sm btn-success btn-circle">
                             <i class="fas fa-plus"></i></a>
                           <!-- <a href="<?php echo base_url("Buah/edit/" . $row['id_buah']); ?>" class="btn btn-sm btn-primary btn-circle">
                             <i class="fas fa-pen"></i></a> -->

@@ -11,6 +11,7 @@
                         <p>Nama Buah</p>
                         <div class="input-group">
                             <input type="text" id="nama_buah" name="nama_buah" class="form-control border-dark small mb-3" placeholder="Masukkan Nama Buah" value="<?php echo set_value('nama_buah') ?>" aria-describedby="basic-addon2">
+                            <input type="hidden" id="id_buah" name="id_buah" class="form-control border-dark small mb-3" placeholder="Masukkan Nama Buah" value="<?= $no ?>" aria-describedby="basic-addon2">
                         </div>
                         <?= form_error('nama_buah', '<small class="text-danger">', '</small>') ?>
                     </div>
@@ -32,12 +33,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-12">
+                    <div class="col-lg-6 col-md-12 col-12">
                         <p>Diameter</p>
                         <div class="input-group">
                             <input type="number" id="diameter" step="any" name="diameter" class="form-control border-dark small mb-3" placeholder="Masukkan Diameeter Buah" aria-describedby="basic-addon2">
                         </div>
                         <?= form_error('diameter', '<small class="text-danger">', '</small>') ?>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <p>K</p>
+                        <div class="input-group">
+                            <input type="number" id="K" step="any" name="K" class="form-control border-dark small mb-3" placeholder="Masukkan K" aria-describedby="basic-addon2">
+                        </div>
+                        <?= form_error('K', '<small class="text-danger">', '</small>') ?>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-icon-split">
